@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Password Managment System</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+              >Password Category</a
+            >
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/add-new-category" class="dropdown-itom"
+                  >Add New Category
+                </a>
+              </li>
+              <li>
+                <a href="/password-category" class="dropdown-itom"
+                  >View All Category</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+              >Password Details</a
+            >
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/add-new-password" class="dropdown-itom"
+                  >Add New password</a
+                >
+              </li>
+              <li>
+                <a href="/view-all-password" class="dropdown-itom"
+                  >View All password</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li><a href="/logout">logout</a></li>
+        </ul>
+        <div class="navbar-header" style="float: right;">
+          <a class="navbar-brand" href="#"
+            >LoggedIn As: <% if(userToken){%> <%= userToken %> <% } %></a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div
+          id="signupbox"
+          style="margin-top: 50px;"
+          class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
+        >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <div class="panel-title">Add new Password Category</div>
+            </div>
+            <div class="panel-body">
+              <p style="text-align: center;"></p>
+
+              <form
+                action="/add-new-category"
+                id="EmployeeForm"
+                class="form-horizontal"
+                method="post"
+                role="form"
+              >
+                <% if(success !=''){%>
+                <p style="text-align: center; color: green;"><%= success %></p>
+                <%}%>
+                <div class="form-group">
+                  <label for="username" class="col-md-3 control-label"
+                    >Categoty Name</label
+                  >
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="passwordCategoryName"
+                      placeholder="Enter Your password Category Name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <!-- Button -->
+                  <div class="col-md-offset-3 col-md-9">
+                    <input
+                      type="submit"
+                      name="submit"
+                      value="Add Category"
+                      class="btn btn-primary"
+                    />
+                  </div>
+                </div>
+
+                <p>
+                  <a href="/password-category">View All Category List</a>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
